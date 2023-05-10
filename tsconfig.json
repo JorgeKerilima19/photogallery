@@ -9,7 +9,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
     "jsx": "react"
   },
-  "include": ["src"]
+  "include": ["src"],
+  "paths": {
+    "@mui/*": ["node_modules/@mui/*"]
+  }
 }
