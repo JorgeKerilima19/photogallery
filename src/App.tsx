@@ -3,9 +3,14 @@ import React from "react";
 import {
   Typography,
   AppBar,
-  Toolbar,
   Container,
   CssBaseline,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Toolbar,
+  Button,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -32,6 +37,13 @@ const App = () => {
             I just want to know the world better and there is not better way
             than traveling within it
           </Typography>
+          <div>
+            <Grid container spacing={3} justifyContent="center">
+              <Grid item direction="column">
+                <Button variant="outlined">Share</Button>
+              </Grid>
+            </Grid>
+          </div>
         </Container>
       </main>
     </>
