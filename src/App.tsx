@@ -1,5 +1,8 @@
 import React from "react";
 
+import { styled } from "@mui/material/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+
 import {
   Typography,
   AppBar,
@@ -12,7 +15,19 @@ import {
   Toolbar,
   Button,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+
+const CustomContainer = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  backgroundColor: "red",
+});
+const CustomButton = styled(Button)({
+  backgroundColor: "#550000",
+  "&:hover": {
+    backgroundColor: "yellow",
+    cursor: "pointer",
+  },
+});
 
 const App = () => {
   return (
@@ -44,6 +59,11 @@ const App = () => {
               </Grid>
             </Grid>
           </div>
+          <CustomContainer>
+            This Is my Card
+            <button>Pick</button>
+            <CustomButton variant="outlined">CliCK</CustomButton>
+          </CustomContainer>
         </Container>
       </main>
     </>
