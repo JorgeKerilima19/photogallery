@@ -3,8 +3,7 @@ import React from "react";
 import { styled } from "@mui/material";
 
 import { Photo, photoData as data } from "./data/photoData";
-import MenuIcon from "@mui/icons-material/Menu";
-
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 import {
   Typography,
   AppBar,
@@ -32,7 +31,7 @@ const App = () => {
       <CssBaseline />
       <AppBar position="relative" color="primary" sx={{ display: "flex" }}>
         <Toolbar sx={{ maxWidth: "lg", margin: "auto" }} variant="regular">
-          <MenuIcon
+          <InsertPhotoIcon
             sx={{ fontSize: "2em" }}
             onClick={() => {
               console.log("object");
