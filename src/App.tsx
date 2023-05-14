@@ -1,6 +1,5 @@
 import React from "react";
-
-import { styled } from "@mui/material/styles";
+import { Photo, photoData as data } from "./data/photoData";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import {
@@ -16,19 +15,6 @@ import {
   Button,
   CardActions,
 } from "@mui/material";
-
-const CustomContainer = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  backgroundColor: "red",
-});
-const CustomButton = styled(Button)({
-  backgroundColor: "#550000",
-  "&:hover": {
-    backgroundColor: "yellow",
-    cursor: "pointer",
-  },
-}) as typeof Button;
 
 const App = () => {
   return (
@@ -53,52 +39,40 @@ const App = () => {
             I just want to know the world better and there is not better way
             than traveling within it
           </Typography>
-          <div>
-            <Grid container spacing={3} justifyContent="center">
-              <Grid item direction="column">
-                <Button variant="outlined">Share</Button>
-              </Grid>
-            </Grid>
-          </div>
-          <CustomContainer>
-            This Is my Card
-            <button>Pick</button>
-            <CustomButton variant="outlined">CliCK</CustomButton>
-          </CustomContainer>
         </Container>
-        <Container>
-          <Grid container maxWidth="md">
-            <Grid item>
-              <Card
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  height: "100%",
-                  width: "20rem",
-                }}
-              >
-                <CardMedia
-                  component="img"
-                  image="https://picsum.photos/seed/picsum/500/600"
-                  title="Image title"
-                  sx={{ display: "flex", height: "15rem", width: "100%" }}
-                />
-                <CardContent>
-                  <Typography variant="body2">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Corrupti, incidunt?
-                  </Typography>
-                </CardContent>
-                <CardActions sx={{justifyContent:"space-evenly"}}>
-                  <Button variant="outlined">Share</Button>
-                  <Button variant="outlined">View</Button>
-                </CardActions>
-              </Card>
-            </Grid>
+        <Container sx={{ display: "flex", justifyContent: "center" }}>
+          <Grid container maxWidth="md" spacing={2} justifyContent="center">
+            {data.map((photo: Photo, index) => (
+              <Grid key={index} item>
+                <Card
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    height: "100%",
+                    width: "20rem",
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image={photo.imageUrl}
+                    title="Image title"
+                    sx={{ display: "flex", height: "15rem", width: "100%" }}
+                  />
+                  <CardContent>
+                    <Typography variant="body2">{photo.description}</Typography>
+                  </CardContent>
+                  <CardActions sx={{ justifyContent: "space-evenly" }}>
+                    <Button variant="outlined">Share</Button>
+                    <Button variant="outlined">View</Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </main>
     </>
   );
 };
+
 export default App;
