@@ -14,6 +14,7 @@ import {
   Grid,
   Toolbar,
   Button,
+  CardActions,
 } from "@mui/material";
 
 const CustomContainer = styled("div")({
@@ -27,7 +28,7 @@ const CustomButton = styled(Button)({
     backgroundColor: "yellow",
     cursor: "pointer",
   },
-});
+}) as typeof Button;
 
 const App = () => {
   return (
@@ -64,6 +65,37 @@ const App = () => {
             <button>Pick</button>
             <CustomButton variant="outlined">CliCK</CustomButton>
           </CustomContainer>
+        </Container>
+        <Container>
+          <Grid container maxWidth="md">
+            <Grid item>
+              <Card
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  width: "20rem",
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image="https://picsum.photos/seed/picsum/500/600"
+                  title="Image title"
+                  sx={{ display: "flex", height: "15rem", width: "100%" }}
+                />
+                <CardContent>
+                  <Typography variant="body2">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                    Corrupti, incidunt?
+                  </Typography>
+                </CardContent>
+                <CardActions sx={{justifyContent:"space-evenly"}}>
+                  <Button variant="outlined">Share</Button>
+                  <Button variant="outlined">View</Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          </Grid>
         </Container>
       </main>
     </>
