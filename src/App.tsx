@@ -1,4 +1,7 @@
 import React from "react";
+
+import { styled } from "@mui/material";
+
 import { Photo, photoData as data } from "./data/photoData";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -16,22 +19,32 @@ import {
   CardActions,
 } from "@mui/material";
 
+const CustomContainer = styled("div")({
+  display: "flex",
+  flexDirection: "column",
+  gap: "1em",
+  margin: "2em",
+});
+
 const App = () => {
   return (
     <>
       <CssBaseline />
-      <AppBar position="relative" color="primary">
-        <Toolbar>
+      <AppBar position="relative" color="primary" sx={{ display: "flex" }}>
+        <Toolbar sx={{ maxWidth: "lg", margin: "auto" }} variant="regular">
           <MenuIcon
+            sx={{ fontSize: "2em" }}
             onClick={() => {
               console.log("object");
             }}
           />
-          <Typography variant="h4">Welcome to my photo Gallery</Typography>
+          <Typography paddingLeft={2} variant="h4">
+            Welcome to my photo Gallery
+          </Typography>
         </Toolbar>
       </AppBar>
       <main>
-        <Container>
+        <CustomContainer>
           <Typography variant="h5" align="center">
             Presentation:
           </Typography>
@@ -39,11 +52,17 @@ const App = () => {
             I just want to know the world better and there is not better way
             than traveling within it
           </Typography>
-        </Container>
+        </CustomContainer>
         <Container sx={{ display: "flex", justifyContent: "center" }}>
-          <Grid container maxWidth="md" spacing={2} justifyContent="center">
+          <Grid
+            container
+            maxWidth="lg"
+            spacing={2}
+            justifyContent="center"
+            alignItems="center"
+          >
             {data.map((photo: Photo, index) => (
-              <Grid key={index} item>
+              <Grid key={index} item xs={"auto"} sm={6} md={4}>
                 <Card
                   sx={{
                     display: "flex",
