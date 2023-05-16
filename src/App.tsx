@@ -1,21 +1,17 @@
 import React from "react";
+import { PhotoCard } from "./components/photoCard";
 
 import { styled } from "@mui/material";
 
-import { Photo, photoData as data } from "./data/photoData";
-import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
+import { Photo, photoData as data } from "./data/PhotoData";
+import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
 import {
   Typography,
   AppBar,
   Container,
   CssBaseline,
-  Card,
-  CardContent,
-  CardMedia,
   Grid,
   Toolbar,
-  Button,
-  CardActions,
 } from "@mui/material";
 
 const CustomContainer = styled("div")({
@@ -61,30 +57,7 @@ const App = () => {
             alignItems="center"
           >
             {data.map((photo: Photo, index) => (
-              <Grid key={index} item xs={"auto"} sm={6} md={4}>
-                <Card
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    height: "100%",
-                    width: "20rem",
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={photo.imageUrl}
-                    title="Image title"
-                    sx={{ display: "flex", height: "15rem", width: "100%" }}
-                  />
-                  <CardContent>
-                    <Typography variant="body2">{photo.description}</Typography>
-                  </CardContent>
-                  <CardActions sx={{ justifyContent: "space-evenly" }}>
-                    <Button variant="outlined">Share</Button>
-                    <Button variant="outlined">View</Button>
-                  </CardActions>
-                </Card>
-              </Grid>
+              <PhotoCard photo={photo} key={index}></PhotoCard>
             ))}
           </Grid>
         </Container>

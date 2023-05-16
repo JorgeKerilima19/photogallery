@@ -3,6 +3,9 @@ export interface Photo {
   description: string;
   imageUrl: string;
 }
+export type PhotoType = {
+  photo: Photo;
+};
 
 export const photoData: Photo[] = [
   {
