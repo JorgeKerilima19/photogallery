@@ -1,64 +1,25 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 
-import { Photo, photoData as data } from "./data/PhotoData";
-import InsertPhotoIcon from "@mui/icons-material/InsertPhoto";
+import Navbar from "./components/Navbar";
+
 import {
-  Typography,
-  AppBar,
-  Container,
-  CssBaseline,
-  Grid,
-  Toolbar,
-} from "@mui/material";
-import { CustomContainer } from "./styles/styles";
-import { PhotoCard, Footer } from "./components";
+  HomePage,
+  CreatePage,
+  ProfilePage,
+  SearchPage,
+} from "./components/pages";
 
 const App = () => {
   return (
-    <>
-      <CssBaseline />
-      <AppBar position="sticky" color="primary" sx={{ display: "flex" }}>
-        <Toolbar sx={{ maxWidth: "lg", margin: "auto" }} variant="regular">
-          <InsertPhotoIcon
-            sx={{ fontSize: "2em" }}
-            onClick={() => {
-              console.log("object");
-            }}
-          />
-          <Typography paddingLeft={2} variant="h4">
-            Welcome to my photo Gallery
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
-        <CustomContainer>
-          <Typography variant="h5" align="center">
-            Presentation:
-          </Typography>
-          <Typography variant="body1" align="center">
-            I just want to know the world better and there is not better way
-            than traveling within it
-          </Typography>
-        </CustomContainer>
-        <Container sx={{ display: "flex", justifyContent: "center" }}>
-          <Grid
-            container
-            maxWidth="lg"
-            spacing={2}
-            justifyContent="center"
-            alignItems="center"
-            padding={2}
-          >
-            {data.map((photo: Photo, index) => (
-              <PhotoCard photo={photo} key={index}></PhotoCard>
-            ))}
-          </Grid>
-        </Container>
-      </main>
-      <footer>
-        <Footer />
-      </footer>
-    </>
+    <Routes>
+      <Route path="/" element={<Navbar />}>
+        <Route path="/home" index element={<HomePage />} />
+        <Route path="/create" element={<CreatePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Route>
+    </Routes>
   );
 };
 

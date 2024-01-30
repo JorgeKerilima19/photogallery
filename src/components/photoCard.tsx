@@ -11,10 +11,9 @@ import {
   CardActions,
 } from "@mui/material";
 
-
 export const PhotoCard = ({ photo }: PhotoType, { index }: any) => {
   return (
-    <Grid key={index} item xs={"auto"} sm={6} md={4}>
+    <Grid key={index} item xs={"auto"} sm={5} md={4}>
       <Card
         sx={{
           display: "flex",
@@ -25,7 +24,7 @@ export const PhotoCard = ({ photo }: PhotoType, { index }: any) => {
       >
         <CardMedia
           component="img"
-          image={photo.imageUrl}
+          image={photo.image}
           title="Image title"
           sx={{ display: "flex", height: "15rem", width: "100%" }}
         />
