@@ -23,6 +23,7 @@ export const BoxMenuLeft = styled(Box)({
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "0 0 1rem 0.8rem",
+  width:"10rem"
 });
 
 export const CustomBottomNavigation = styled(BottomNavigation)({

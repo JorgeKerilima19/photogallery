@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import { Box, Avatar } from "@mui/material";
 import { Home, Search, AddBox, AccountCircle, Menu } from "@mui/icons-material";
 
 import {
@@ -9,8 +8,7 @@ import {
   CustomBottomNavigationAction,
   BoxMenuLeft,
 } from "../styles/styles";
-
-import { logoLight } from "../data/LogoData";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const [value, setValue] = useState(0);
@@ -40,7 +38,7 @@ const Navbar = () => {
   return (
     <>
       <BoxMenuLeft>
-        <Avatar src={logoLight} sx={{ width: "100%" }} />
+        <Logo />
         <CustomBottomNavigation
           value={value}
           onChange={(event, newValue) => setValue(newValue)}
