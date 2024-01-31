@@ -1,53 +1,63 @@
 import React, { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 
-import { BottomNavigationAction } from "@mui/material";
-import { Home, Search, AddBox, AccountCircle } from "@mui/icons-material";
+import { Box, Avatar } from "@mui/material";
+import { Home, Search, AddBox, AccountCircle, Menu } from "@mui/icons-material";
 
-import { CustomBottomNavigation } from "../styles/styles";
+import {
+  CustomBottomNavigation,
+  CustomBottomNavigationAction,
+  BoxMenuLeft,
+} from "../styles/styles";
+
+import { logoLight } from "../data/LogoData";
 
 const Navbar = () => {
   const [value, setValue] = useState(0);
   const iconList = [
     {
-      icon: <Home />,
-      path: "/home",
+      icon: <Home fontSize="large" />,
+      name: "Home",
+      path: "/",
     },
     {
-      icon: <Search />,
+      icon: <Search fontSize="large" />,
+      name: "Search",
       path: "/search",
     },
     {
-      icon: <AddBox />,
+      icon: <AddBox fontSize="large" />,
+      name: "Create",
       path: "/create",
     },
     {
-      icon: <AccountCircle />,
+      icon: <AccountCircle fontSize="large" />,
+      name: "Account",
       path: "/profile",
     },
   ];
 
   return (
     <>
-      <CustomBottomNavigation
-        value={value}
-        onChange={(event, newValue) => setValue(newValue)}
-        sx={{
-          "@media (max-width: 600px)": {
-            flexDirection: "column",
-            height: "100%",
-          },
-        }}
-      >
-        {iconList.map((icon, index) => (
-          <BottomNavigationAction
-            key={index}
-            icon={icon.icon}
-            component={Link}
-            to={`${icon.path}`}
-          />
-        ))}
-      </CustomBottomNavigation>
+      <BoxMenuLeft>
+        <Avatar src={logoLight} sx={{ width: "100%" }} />
+        <CustomBottomNavigation
+          value={value}
+          onChange={(event, newValue) => setValue(newValue)}
+        >
+          {iconList.map((icon, index) => (
+            <CustomBottomNavigationAction
+              key={index}
+              icon={icon.icon}
+              component={Link}
+              to={`${icon.path}`}
+              label={icon.name}
+              showLabel
+            />
+          ))}
+        </CustomBottomNavigation>
+        <Menu fontSize="large" sx={{ fill: "#242424" }} />
+      </BoxMenuLeft>
       <Outlet />
     </>
   );
