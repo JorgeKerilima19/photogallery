@@ -1,5 +1,3 @@
-import React from "react";
-
-export const CreatePage = () => {
+export const CreateComponent = () => {
   return <div>Create</div>;
 };

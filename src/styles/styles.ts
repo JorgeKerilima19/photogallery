@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import {
   BottomNavigation,
   BottomNavigationAction,
+  Box,
   Container,
 } from "@mui/material";
 
@@ -36,6 +37,15 @@ export const ContainerLeft = styled(Container)({
   marginLeft: "0",
 });
 
+export const BoxNoPageElements = styled(Box)({
+  position: "absolute",
+  top: 0,
+  left: "100%",
+  background: "red",
+  height: "100%",
+  width: "100%",
+});
+
 export const ContainerCenter = styled(Container)({
   display: "flex",
   gap: "2rem",
@@ -57,7 +67,6 @@ export const CustomBottomNavigation = styled(BottomNavigation)({
 });
 
 export const CustomBottomNavigationAction = styled(BottomNavigationAction)({
-  display: "flex",
   flexDirection: "row",
   gap: "0.5rem",
   alignItems: "center",
@@ -66,4 +75,5 @@ export const CustomBottomNavigationAction = styled(BottomNavigationAction)({
   },
   color: "#242424",
   padding: "0",
+  justifyContent:"space-between"
 });

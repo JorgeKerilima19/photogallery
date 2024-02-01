@@ -14,7 +14,7 @@ export const UserAvatar = () => {
       <Avatar
         src={img}
         sx={{
-          // height: "3.5rem",
+          height: "3.5rem",
           width: "3.5rem",
           border: "2px solid #7ed957",
         }}
