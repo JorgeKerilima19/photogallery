@@ -30,6 +30,9 @@ export const ContainerLeft = styled(Container)({
   justifyContent: "space-between",
   padding: "0 0 1rem 0.8rem",
   width: "15.5rem",
+  maxHeight: "95vh",
+  position: "sticky",
+  top: "0",
 });
 
 export const ContainerCenter = styled(Container)({
