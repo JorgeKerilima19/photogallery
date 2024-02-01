@@ -1,8 +1,8 @@
-import { Avatar, Card, Typography, CardContent, Box } from "@mui/material";
+import { Avatar, Typography, Box } from "@mui/material";
 
 import img1 from "/assets/user1.jpg";
 
-export const Sugesstion = () => {
+export const Suggestion = () => {
   return (
     <Box
       sx={{

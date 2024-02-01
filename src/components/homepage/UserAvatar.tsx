@@ -1,11 +1,16 @@
 import { Avatar, Box, Typography } from "@mui/material";
-import React from "react";
 
 export const UserAvatar = () => {
   return (
-    <Box>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      gap={1}
+      padding="0 0.4rem"
+    >
       <Avatar />
-      <Typography variant="body1">User</Typography>
+      <Typography variant="caption">User</Typography>
     </Box>
   );
 };
