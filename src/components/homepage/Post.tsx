@@ -1,14 +1,15 @@
 import photo1 from "/assets/photo1.jpg";
 import user1 from "/assets/user1.jpg";
 
-import {Card,
+import {
+  Card,
   CardContent,
   CardHeader,
   CardMedia,
   Avatar,
   IconButton,
-  Typography,} from "@mui/material";
-
+  Typography,
+} from "@mui/material";
 
 import {
   Favorite,
@@ -19,7 +20,7 @@ import {
 
 export const Post = () => {
   return (
-    <Card sx={{ color: "black", maxWidth: "24rem" }}>
+    <Card sx={{ color: "black", maxWidth: "max(80%,25rem)" }}>
       {/* Header with user information */}
       <CardHeader
         avatar={<Avatar src={user1} />}

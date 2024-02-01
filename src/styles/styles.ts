@@ -10,7 +10,7 @@ export const MainContainer = styled(Container)({
   display: "flex",
   minHeight: "100vh",
   paddingTop: "1.25rem",
-  gap: "5rem",
+  gap: "2rem",
   justifyContent: "space-between",
   "@media (max-width: 600px)": {
     paddingTop: "0.5rem",
@@ -35,6 +35,9 @@ export const ContainerLeft = styled(Container)({
   position: "sticky",
   top: "0",
   marginLeft: "0",
+  borderRightWidth: "2px",
+  borderRightColor: "#212121",
+  borderRightStyle: "solid",
 });
 
 export const BoxNoPageElements = styled(Box)({
@@ -52,10 +55,11 @@ export const ContainerCenter = styled(Container)({
   flexDirection: "column",
   padding: "0 0 1rem 0.8rem",
   alignItems: "center",
+  width:"60%"
 });
 
 export const ContainerRight = styled(Container)({
-  width: "55%",
+  width: "35%",
 });
 
 export const CustomBottomNavigation = styled(BottomNavigation)({
@@ -75,5 +79,5 @@ export const CustomBottomNavigationAction = styled(BottomNavigationAction)({
   },
   color: "#242424",
   padding: "0",
-  justifyContent:"space-between"
+  justifyContent: "space-between",
 });
