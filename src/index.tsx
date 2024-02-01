@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./src/App";
+import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
-import { MainContainer } from "./src/styles/styles";
+import { MainContainer } from "./styles/styles.ts";
 
 const theme = createTheme({
   palette: {

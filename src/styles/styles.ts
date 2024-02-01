@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import {
   BottomNavigation,
   BottomNavigationAction,
-  Box,
   Container,
 } from "@mui/material";
 
@@ -37,9 +36,8 @@ export const ContainerCenter = styled(Container)({
   display: "flex",
   gap: "2rem",
   flexDirection: "column",
-  justifyContent: "space-between",
   padding: "0 0 1rem 0.8rem",
-  background: "red",
+  alignItems: "center",
 });
 
 export const CustomBottomNavigation = styled(BottomNavigation)({
