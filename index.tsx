@@ -33,7 +33,7 @@ ReactDOM.createRoot(document.getElementById("#root") as HTMLElement).render(
     <BrowserRouter>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <MainContainer>
+        <MainContainer maxWidth="xl" disableGutters>
           <App />
         </MainContainer>
       </ThemeProvider>

@@ -5,7 +5,7 @@ export const UserAvatar = () => {
   return (
     <Box>
       <Avatar />
-      <Typography>User</Typography>
+      <Typography variant="body1">User</Typography>
     </Box>
   );
 };

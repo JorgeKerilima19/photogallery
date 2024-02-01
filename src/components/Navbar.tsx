@@ -6,7 +6,7 @@ import { Home, Search, AddBox, AccountCircle, Menu } from "@mui/icons-material";
 import {
   CustomBottomNavigation,
   CustomBottomNavigationAction,
-  BoxMenuLeft,
+  ContainerLeft,
 } from "../styles/styles";
 import Logo from "./Logo";
 
@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <BoxMenuLeft>
+      <ContainerLeft>
         <Logo />
         <CustomBottomNavigation
           value={value}
@@ -55,7 +55,7 @@ const Navbar = () => {
           ))}
         </CustomBottomNavigation>
         <Menu fontSize="large" sx={{ fill: "#242424" }} />
-      </BoxMenuLeft>
+      </ContainerLeft>
       <Outlet />
     </>
   );
