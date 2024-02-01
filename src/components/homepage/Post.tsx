@@ -1,15 +1,21 @@
 import photo1 from "/assets/photo1.jpg";
 import user1 from "/assets/user1.jpg";
 
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import Avatar from "@mui/material/Avatar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
+import {Card,
+  CardContent,
+  CardHeader,
+  CardMedia,
+  Avatar,
+  IconButton,
+  Typography,} from "@mui/material";
 
-import { Favorite, ChatBubbleOutline, Send } from "@mui/icons-material";
+
+import {
+  Favorite,
+  ChatBubbleOutline,
+  Send,
+  MoreHoriz,
+} from "@mui/icons-material";
 
 export const Post = () => {
   return (
@@ -19,7 +25,11 @@ export const Post = () => {
         avatar={<Avatar src={user1} />}
         title="Username"
         subheader="Location"
-        action={<IconButton aria-label="settings" />}
+        action={
+          <IconButton aria-label="settings">
+            <MoreHoriz></MoreHoriz>
+          </IconButton>
+        }
       />
 
       {/* Image or video content */}

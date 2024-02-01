@@ -33,6 +33,7 @@ export const ContainerLeft = styled(Container)({
   maxHeight: "95vh",
   position: "sticky",
   top: "0",
+  marginLeft: "0",
 });
 
 export const ContainerCenter = styled(Container)({
@@ -41,6 +42,10 @@ export const ContainerCenter = styled(Container)({
   flexDirection: "column",
   padding: "0 0 1rem 0.8rem",
   alignItems: "center",
+});
+
+export const ContainerRight = styled(Container)({
+  width: "55%",
 });
 
 export const CustomBottomNavigation = styled(BottomNavigation)({

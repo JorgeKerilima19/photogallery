@@ -37,7 +37,7 @@ const Navbar = () => {
 
   return (
     <>
-      <ContainerLeft>
+      <ContainerLeft disableGutters>
         <Logo />
         <CustomBottomNavigation
           value={value}
