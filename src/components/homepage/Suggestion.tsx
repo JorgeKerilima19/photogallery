@@ -14,9 +14,11 @@ export const Suggestion = () => {
         padding: "0.4rem 0",
       }}
     >
-      <Avatar src={img1} sx={{ height: "2.75rem", width: "2.75rem" }}>
-        1
-      </Avatar>
+      <Avatar
+        src={img1}
+        sx={{ height: "2.75rem", width: "2.75rem" }}
+        alt="Image"
+      />
       <Box>
         <Typography variant="body1">User1</Typography>
         <Typography variant="caption">Suggested for you</Typography>

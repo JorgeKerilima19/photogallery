@@ -23,7 +23,7 @@ export const Post = () => {
     <Card sx={{ color: "black", maxWidth: "max(80%,25rem)" }}>
       {/* Header with user information */}
       <CardHeader
-        avatar={<Avatar src={user1} />}
+        avatar={<Avatar src={user1} sx={{ position: "static" }} />}
         title="Username"
         subheader="Location"
         action={
@@ -37,7 +37,13 @@ export const Post = () => {
       <CardMedia component="img" height="500" image={photo1} alt="Post Image" />
 
       {/* Like, Comment, and Send buttons */}
-      <CardContent>
+      <CardContent
+        sx={{
+          "& .css-78trlr-MuiButtonBase-root-MuiIconButton-root ": {
+            position: "unset",
+          },
+        }}
+      >
         <IconButton aria-label="like">
           <Favorite />
         </IconButton>

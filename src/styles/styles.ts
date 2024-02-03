@@ -9,7 +9,7 @@ import {
 export const MainContainer = styled(Container)({
   display: "flex",
   minHeight: "100vh",
-  paddingTop: "1.25rem",
+  paddingTop: "2.75rem",
   gap: "2rem",
   justifyContent: "space-between",
   "@media (max-width: 600px)": {
@@ -30,7 +30,6 @@ export const ContainerLeft = styled(Container)({
   flexDirection: "column",
   justifyContent: "space-between",
   padding: "0 0 1rem 0.8rem",
-  width: "15.5rem",
   maxHeight: "95vh",
   position: "sticky",
   top: "0",
@@ -44,9 +43,11 @@ export const BoxNoPageElements = styled(Box)({
   position: "absolute",
   top: 0,
   left: "100%",
-  background: "red",
   height: "100%",
-  width: "100%",
+  background: "white",
+  minWidth: "18rem",
+  borderRight: "thin solid black",
+  zIndex:"100"
 });
 
 export const ContainerCenter = styled(Container)({
@@ -55,7 +56,7 @@ export const ContainerCenter = styled(Container)({
   flexDirection: "column",
   padding: "0 0 1rem 0.8rem",
   alignItems: "center",
-  width:"60%"
+  width: "60%",
 });
 
 export const ContainerRight = styled(Container)({

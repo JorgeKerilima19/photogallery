@@ -46,13 +46,12 @@ const Navbar = () => {
 
   const [showLabel, setShowLabel] = useState(true);
 
-  const handleShowLabel = () => setShowLabel((showLabel) => !showLabel);
-
   const handleSingleComponent = (component: ReactElement | undefined) => {
-    handleShowLabel();
+    setShowLabel(false);
     if (!component) return;
 
     if (singleComponent && singleComponent === component) {
+      setShowLabel(true);
       setSingleComponent(undefined);
       return;
     }
@@ -61,7 +60,10 @@ const Navbar = () => {
 
   return (
     <>
-      <ContainerLeft disableGutters>
+      <ContainerLeft
+        disableGutters
+        sx={{ width: `${showLabel ? "15.5rem" : "5rem"}` }}
+      >
         <Logo showlabel={showLabel} />
         <CustomBottomNavigation
           value={value}
@@ -81,6 +83,9 @@ const Navbar = () => {
                     "& .MuiBottomNavigationAction-label": {
                       display: `${showLabel ? "block" : "none"}`,
                     },
+                  }}
+                  onClick={() => {
+                    setShowLabel(true);
                   }}
                 />
               );

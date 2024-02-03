@@ -17,6 +17,7 @@ export const UserAvatar = () => {
           height: "3.5rem",
           width: "3.5rem",
           border: "2px solid #7ed957",
+          position: "static",
         }}
       />
       <Typography variant="caption">User</Typography>
