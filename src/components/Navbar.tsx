@@ -60,14 +60,12 @@ const Navbar = () => {
 
   return (
     <>
-      <ContainerLeft
-        disableGutters
-        sx={{ width: `${showLabel ? "15.5rem" : "5rem"}` }}
-      >
+      <ContainerLeft disableGutters sx={{ width: "15rem" }}>
         <Logo showlabel={showLabel} />
         <CustomBottomNavigation
           value={value}
           onChange={(event, newValue) => setValue(newValue)}
+          sx={{ width: `${showLabel ? "auto" : "5rem"}` }}
         >
           {iconList.map((icon, index) => {
             if (icon.path) {
