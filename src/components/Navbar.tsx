@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <>
-      <ContainerLeft disableGutters sx={{ width: "15rem" }}>
+      <ContainerLeft disableGutters sx={{ width: "12.25rem" }}>
         <Logo showlabel={showLabel} />
         <CustomBottomNavigation
           value={value}
@@ -84,6 +84,7 @@ const Navbar = () => {
                   }}
                   onClick={() => {
                     setShowLabel(true);
+                    setSingleComponent(undefined);
                   }}
                 />
               );
