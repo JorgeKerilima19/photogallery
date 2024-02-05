@@ -4,6 +4,7 @@ import {
   BottomNavigationAction,
   Box,
   Container,
+  Paper,
 } from "@mui/material";
 
 export const MainContainer = styled(Container)({
@@ -47,7 +48,7 @@ export const BoxNoPageElements = styled(Box)({
   background: "white",
   minWidth: "18rem",
   borderRight: "thin solid black",
-  zIndex:"100"
+  zIndex: "100",
 });
 
 export const ContainerCenter = styled(Container)({
@@ -81,4 +82,25 @@ export const CustomBottomNavigationAction = styled(BottomNavigationAction)({
   color: "#242424",
   padding: "0",
   justifyContent: "space-between",
+});
+
+//Create Elements
+
+export const CreateModalPaper = styled(Paper)({
+  textAlign: "center",
+  padding: 2,
+});
+
+export const CreateVideoStyles = styled("video")({
+  maxWidth: "100%",
+  maxHeight: "100%",
+  margin: "0 auto",
+  display: "none",
+});
+
+export const CreateImageStyles = styled("img")({
+  maxWidth: "50%",
+  maxHeight: "100%",
+  margin: "0 auto",
+  display: "block",
 });
