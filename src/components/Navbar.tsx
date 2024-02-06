@@ -13,6 +13,9 @@ import {
 
 import { CreateComponent, SearchComponent } from "./pages";
 
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 const iconList = [
   {
     icon: <Home fontSize="large" />,
@@ -39,12 +42,19 @@ const iconList = [
 ];
 
 const Navbar = () => {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const [singleComponent, setSingleComponent] = useState<
     ReactElement | undefined
   >(undefined);
 
   const [showLabel, setShowLabel] = useState(true);
+
+  const theme = useTheme();
+  const isSmallDevice = useMediaQuery(theme.breakpoints.down("md"));
+
+  const handlePageChange = (event: any, newValue: number) => {
+    setValue(newValue);
+  };
 
   const handleSingleComponent = (component: ReactElement | undefined) => {
     setShowLabel(false);
@@ -58,14 +68,20 @@ const Navbar = () => {
     return setSingleComponent(component);
   };
 
+  console.log(isSmallDevice);
+
   return (
     <>
-      <ContainerLeft disableGutters sx={{ width: "12.25rem" }}>
-        <Logo showlabel={showLabel} />
+      <ContainerLeft
+        disableGutters
+        sx={{ width: `${showLabel && !isSmallDevice ? "11.4rem" : "5rem"}` }}
+      >
+        <Logo showlabel={showLabel && !isSmallDevice} />
         <CustomBottomNavigation
+          // value={`${isSmallDevice ? value : value}`}
           value={value}
-          onChange={(event, newValue) => setValue(newValue)}
-          sx={{ width: `${showLabel ? "auto" : "5rem"}` }}
+          onChange={handlePageChange}
+          sx={{ width: `${showLabel || isSmallDevice ? "auto" : "5rem"}` }}
         >
           {iconList.map((icon, index) => {
             if (icon.path) {
@@ -75,7 +91,7 @@ const Navbar = () => {
                   icon={icon.icon}
                   component={Link}
                   to={`${icon.path}`}
-                  label={icon.name}
+                  label={`${!isSmallDevice ? icon.name : ""}`}
                   showLabel={showLabel}
                   sx={{
                     "& .MuiBottomNavigationAction-label": {
@@ -93,7 +109,7 @@ const Navbar = () => {
               <CustomBottomNavigationAction
                 key={index}
                 icon={icon.icon}
-                label={icon.name}
+                label={`${!isSmallDevice ? icon.name : ""}`}
                 showLabel={showLabel}
                 sx={{
                   "& .MuiBottomNavigationAction-label": {
@@ -108,12 +124,12 @@ const Navbar = () => {
           })}
         </CustomBottomNavigation>
         <Menu fontSize="large" sx={{ fill: "#242424" }} />
-        <>
-          {singleComponent && (
-            <BoxNoPageElements>{singleComponent}</BoxNoPageElements>
-          )}
-        </>
       </ContainerLeft>
+      <>
+        {singleComponent && (
+          <BoxNoPageElements>{singleComponent}</BoxNoPageElements>
+        )}
+      </>
       <Outlet />
     </>
   );
