@@ -68,8 +68,6 @@ const Navbar = () => {
     return setSingleComponent(component);
   };
 
-  console.log(isSmallDevice);
-
   return (
     <>
       <ContainerLeft
@@ -78,7 +76,6 @@ const Navbar = () => {
       >
         <Logo showlabel={showLabel && !isSmallDevice} />
         <CustomBottomNavigation
-          // value={`${isSmallDevice ? value : value}`}
           value={value}
           onChange={handlePageChange}
           sx={{ width: `${showLabel || isSmallDevice ? "auto" : "5rem"}` }}

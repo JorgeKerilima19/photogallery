@@ -45,10 +45,11 @@ export const ContainerLeft = styled(Container)({
   borderRightStyle: "solid",
   background: "#fff",
   overflowY: "auto",
+  overflowX: "hidden",
 });
 
 export const BoxNoPageElements = styled(Box)({
-  position: "absolute",
+  position: "fixed",
   top: 0,
   left: "4.5rem",
   height: "100%",
