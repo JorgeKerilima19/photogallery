@@ -1,5 +1,5 @@
 import { Box, Hidden, Typography } from "@mui/material";
-import { UserAvatar } from "../homepage/UserAvatar";
+import { StoryComponent } from "../homepage/StoryComponent";
 import { ContainerCenter, ContainerRight } from "../../styles/styles";
 import { Post } from "../homepage/Post";
 import { Suggestion } from "../homepage/Suggestion";
@@ -14,10 +14,10 @@ export const HomePage = () => {
           justifyContent="center"
           gap="0.4rem"
         >
-          <UserAvatar />
-          <UserAvatar />
-          <UserAvatar />
-          <UserAvatar />
+          <StoryComponent />
+          <StoryComponent />
+          <StoryComponent />
+          <StoryComponent />
         </Box>
         <Box
           display="flex"

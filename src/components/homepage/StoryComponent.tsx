@@ -2,7 +2,7 @@ import { Avatar, Box, Typography } from "@mui/material";
 
 import img from "/assets/photo1.jpg";
 
-export const UserAvatar = () => {
+export const StoryComponent = () => {
   return (
     <Box
       display="flex"

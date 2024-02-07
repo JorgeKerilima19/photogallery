@@ -50,7 +50,7 @@ const Navbar = () => {
   const [showLabel, setShowLabel] = useState(true);
 
   const theme = useTheme();
-  const isSmallDevice = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
 
   const handlePageChange = (event: any, newValue: number) => {
     setValue(newValue);
@@ -122,6 +122,7 @@ const Navbar = () => {
         </CustomBottomNavigation>
         <Menu fontSize="large" sx={{ fill: "#242424" }} />
       </ContainerLeft>
+
       <>
         {singleComponent && (
           <BoxNoPageElements>{singleComponent}</BoxNoPageElements>

@@ -1,5 +1,106 @@
-import React from "react";
+import { ProfileContainer } from "../../styles/styles";
+
+import profileImg from "/assets/photo5.jpg";
+
+import {
+  Grid,
+  Container,
+  Avatar,
+  Typography,
+  Box,
+  Button,
+} from "@mui/material";
+
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import { StoryComponent } from "../homepage/StoryComponent";
 
 export const ProfilePage = () => {
-  return <div>ProfilePage</div>;
+  const theme = useTheme();
+  const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
+
+  const about = (
+    <Box padding="1rem 0">
+      <Typography variant="subtitle1">Name</Typography>
+      <Typography variant="inherit">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
+        beatae?;
+      </Typography>
+    </Box>
+  );
+
+  return (
+    <ProfileContainer>
+      <Grid container>
+        <Grid
+          item
+          xs={12}
+          sm={1.8}
+          lg={3}
+          sx={{ display: "grid", placeItems: "center" }}
+        >
+          <Avatar
+            src={profileImg}
+            sx={{
+              height: `${isSmallDevice ? "4rem" : "7.4rem"}`,
+              width: `${isSmallDevice ? "4rem" : "7.4rem"}`,
+            }}
+          />
+        </Grid>
+        <Grid item xs={12} sm={10.2} lg={9}>
+          <Grid
+            container
+            sx={{
+              display: { xs: "grid", sm: "flex" },
+              placeItems: "center",
+              gap: { xs: "1rem", sm: "0" },
+            }}
+          >
+            <Grid item xs={12} sm={6}>
+              <Typography variant="h6">UserName</Typography>
+            </Grid>
+            <Grid item display="flex" xs={12} sm={6} gap={1}>
+              <Button variant="contained" size="small">
+                <Typography variant="caption">EditProfile</Typography>
+              </Button>
+              <Button variant="contained" size="small">
+                <Typography variant="caption">View Archives</Typography>
+              </Button>
+            </Grid>
+          </Grid>
+          <>
+            {!isSmallDevice ? (
+              <Box display="flex" gap={4} paddingTop={2}>
+                <Box display="flex" alignItems="center" gap={0.5}>
+                  <Typography variant="subtitle1">3</Typography>
+                  <Typography variant="inherit">Post</Typography>
+                </Box>
+                <Box display="flex" alignItems="center" gap={0.5}>
+                  <Typography variant="subtitle1">8</Typography>
+                  <Typography variant="inherit">Followers</Typography>
+                </Box>
+                <Box display="flex" alignItems="center" gap={0.5}>
+                  <Typography variant="subtitle1">14</Typography>
+                  <Typography variant="inherit">Following</Typography>
+                </Box>
+              </Box>
+            ) : (
+              <></>
+            )}
+          </>
+          <>{isSmallDevice ? <></> : <>{about}</>}</>
+        </Grid>
+      </Grid>
+      <Container disableGutters>
+        <Box>{!isSmallDevice ? <></> : <>{about}</>}</Box>
+        <Box display="flex">
+          <StoryComponent />
+          <StoryComponent />
+          <StoryComponent />
+          <StoryComponent />
+        </Box>
+      </Container>
+      <Container>General Post</Container>
+    </ProfileContainer>
+  );
 };

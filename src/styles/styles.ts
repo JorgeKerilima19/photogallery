@@ -115,3 +115,8 @@ export const CreateImageStyles = styled("img")({
   margin: "0 auto",
   display: "block",
 });
+
+export const ProfileContainer = styled(Container)({
+  width: "min(95%,45rem)",
+  display:"block"
+});
