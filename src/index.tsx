@@ -25,6 +25,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiAvatar: {
+      styleOverrides: {
+        root: {
+          position: "static",
+        },
+      },
+    },
   },
 });
 

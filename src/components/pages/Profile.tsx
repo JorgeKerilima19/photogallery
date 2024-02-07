@@ -1,6 +1,9 @@
 import { ProfileContainer } from "../../styles/styles";
 
 import profileImg from "/assets/photo5.jpg";
+import { posts } from "../../data/PostData";
+
+import { Card, CardMedia, Divider } from "@mui/material";
 
 import {
   Grid,
@@ -100,7 +103,41 @@ export const ProfilePage = () => {
           <StoryComponent />
         </Box>
       </Container>
-      <Container>General Post</Container>
+      <Divider variant="fullWidth" sx={{ marginTop: 2, marginBottom: 2 }} />
+      <Grid container spacing={1}>
+        {posts.map((post) => (
+          <Grid item key={post.id} xs={4} zIndex={-1}>
+            <div
+              style={{
+                position: "relative",
+                width: "100%",
+                paddingBottom: "100%",
+              }}
+            >
+              <Card
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  bottom: 0,
+                  right: 0,
+                }}
+              >
+                <CardMedia
+                  component="img"
+                  image={post.content}
+                  alt={`Image`}
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                  }}
+                />
+              </Card>
+            </div>
+          </Grid>
+        ))}
+      </Grid>
     </ProfileContainer>
   );
 };

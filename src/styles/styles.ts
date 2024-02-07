@@ -10,7 +10,7 @@ import {
 export const MainContainer = styled(Container)({
   display: "flex",
   minHeight: "100vh",
-  paddingTop: "2.75rem",
+  padding: "2.75rem 0",
   gap: "2rem",
   justifyContent: "flex-end",
   "@media (max-width: 600px)": {
