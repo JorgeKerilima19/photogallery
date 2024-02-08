@@ -10,15 +10,16 @@ export const CreateComponent = () => {
 
   const style = {
     position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "45%",
+    top: { xs: 0, md: "50%" },
+    left: { xs: 0, md: "50%" },
+    transform: { sx: "unset", md: "translate(-50%, -50%)" },
+    width: { xs: "100%", md: "50%" },
     bgcolor: "background.paper",
     boxShadow: 24,
-    p: 4,
+    p: { xs: 1, md: 4 },
     display: "grid",
     placeItems: "center",
+    height: "calc(100% - 4rem)",
   };
 
   return (
@@ -26,17 +27,12 @@ export const CreateComponent = () => {
       display="flex"
       flexDirection="column"
       justifyContent="center"
-      sx={{ paddingTop: "100%" }}
+      alignItems="center"
     >
       <Button onClick={handleOpenCamera}>Create post now</Button>
       <Button>Upload a photo</Button>
       <Button>Live</Button>
-      <Modal
-        open={openCamera}
-        onClose={handleCloseCamera}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={openCamera} onClose={handleCloseCamera}>
         <Box sx={style} gap={2}>
           <OpenCamera />
         </Box>

@@ -145,7 +145,19 @@ const Navbar = () => {
 
       <>
         {singleComponent && (
-          <BoxNoPageElements>{singleComponent}</BoxNoPageElements>
+          <BoxNoPageElements
+            sx={{
+              height: { xs: "calc(100vh - 4rem)", md: "100%" },
+              width: { xs: "100%", md: "auto" },
+              display: "flex",
+              justifyContent: `${
+                singleComponent === iconList[2].element ? "center" : ""
+              }`,
+              left: { sm: "0", md: "4.5rem" },
+            }}
+          >
+            {singleComponent}
+          </BoxNoPageElements>
         )}
       </>
       <Outlet />

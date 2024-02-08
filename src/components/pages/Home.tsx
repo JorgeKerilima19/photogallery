@@ -7,7 +7,10 @@ import { Suggestion } from "../homepage/Suggestion";
 export const HomePage = () => {
   return (
     <>
-      <ContainerCenter disableGutters>
+      <ContainerCenter
+        disableGutters
+        sx={{ padding: { xs: "1rem 0", md: "0 0 1rem 0.8rem" } }}
+      >
         <Box
           display="flex"
           alignItems="center"

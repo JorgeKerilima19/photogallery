@@ -45,8 +45,8 @@ export const ContainerLeft = styled(Container)({
   borderRightStyle: "solid",
   background: "#fff",
   overflow: "hidden",
-  //fix the 900 mid screen bug
   "@media (max-width: 899px)": {
+    //fix the 900 mid screen bug
     top: "unset",
     bottom: 0,
     minHeight: "4rem",
@@ -59,7 +59,6 @@ export const ContainerLeft = styled(Container)({
 export const BoxNoPageElements = styled(Box)({
   position: "fixed",
   top: 0,
-  left: "4.5rem",
   height: "100%",
   background: "white",
   minWidth: "18rem",

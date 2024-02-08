@@ -8,7 +8,12 @@ const Logo = ({ showlabel }: { showlabel: boolean }) => {
   const isSmaallScreen = useMediaQuery(theme.breakpoints.up("md"));
 
   const smallStyles = { position: "static" as const };
-  const largeStyles = { position: "absolute" as const };
+  const largeStyles = {
+    position: "fixed" as const,
+    top: "0.4rem",
+    left: "0.2rem",
+    opacity:"0.5"
+  };
 
   const generalStyles = {
     width: "2.5em",
