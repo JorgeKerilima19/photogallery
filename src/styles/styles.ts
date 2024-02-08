@@ -44,8 +44,16 @@ export const ContainerLeft = styled(Container)({
   borderRightColor: "#212121",
   borderRightStyle: "solid",
   background: "#fff",
-  overflowY: "auto",
-  overflowX: "hidden",
+  overflow: "hidden",
+  //fix the 900 mid screen bug
+  "@media (max-width: 899px)": {
+    top: "unset",
+    bottom: 0,
+    minHeight: "4rem",
+    maxHeight: "4rem",
+    flexDirection: "row",
+    width: "100%  ",
+  },
 });
 
 export const BoxNoPageElements = styled(Box)({
@@ -77,7 +85,6 @@ export const ContainerRight = styled(Container)({
 
 export const CustomBottomNavigation = styled(BottomNavigation)({
   display: "flex",
-  flexDirection: "column",
   gap: "1rem",
   height: "auto",
   alignItems: "start",
@@ -118,5 +125,5 @@ export const CreateImageStyles = styled("img")({
 
 export const ProfileContainer = styled(Container)({
   width: "min(95%,45rem)",
-  display:"block"
+  display: "block",
 });

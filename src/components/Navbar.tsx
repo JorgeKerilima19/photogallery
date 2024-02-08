@@ -51,6 +51,7 @@ const Navbar = () => {
 
   const theme = useTheme();
   const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
+  const logoControl = useMediaQuery(theme.breakpoints.down("md"));
 
   const handlePageChange = (event: any, newValue: number) => {
     setValue(newValue);
@@ -70,15 +71,34 @@ const Navbar = () => {
 
   return (
     <>
+      <>
+        {isSmallDevice && logoControl ? (
+          <Logo showlabel={showLabel && !isSmallDevice} />
+        ) : (
+          ""
+        )}
+      </>
+
       <ContainerLeft
         disableGutters
-        sx={{ width: `${showLabel && !isSmallDevice ? "11.4rem" : "5rem"}` }}
+        sx={{
+          width: `${showLabel && !isSmallDevice ? "11.4rem" : "5rem"}`,
+        }}
       >
-        <Logo showlabel={showLabel && !isSmallDevice} />
+        <>
+          {!isSmallDevice || !logoControl ? (
+            <Logo showlabel={showLabel && !isSmallDevice} />
+          ) : (
+            ""
+          )}
+        </>
         <CustomBottomNavigation
           value={value}
           onChange={handlePageChange}
-          sx={{ width: `${showLabel || isSmallDevice ? "auto" : "5rem"}` }}
+          sx={{
+            width: `${showLabel || isSmallDevice ? "auto" : "5rem"}`,
+            flexDirection: { xs: "row", md: "column" },
+          }}
         >
           {iconList.map((icon, index) => {
             if (icon.path) {
