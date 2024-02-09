@@ -15,8 +15,10 @@ import { CreateComponent, SearchComponent } from "./pages";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import AppContext from "../context/AppContext";
 import { Button } from "@mui/material";
+
+//Context
+import AppContext from "../context/AppContext";
 
 const iconList = [
   {
@@ -92,6 +94,7 @@ const Navbar = () => {
         disableGutters
         sx={{
           width: `${showLabel && !isSmallDevice ? "11.4rem" : "5rem"}`,
+          backgroundColor: theme.palette.background.default,
         }}
       >
         <>
@@ -150,7 +153,7 @@ const Navbar = () => {
           })}
         </CustomBottomNavigation>
         <Button onClick={switchTheme}>
-          <Menu fontSize="large" sx={{ fill: "#242424" }} />
+          <Menu fontSize="large" />
         </Button>
       </ContainerLeft>
 
@@ -165,6 +168,7 @@ const Navbar = () => {
                 singleComponent === iconList[2].element ? "center" : ""
               }`,
               left: { sm: "0", md: "4.5rem" },
+              background: theme.palette.background.default,
             }}
           >
             {singleComponent}

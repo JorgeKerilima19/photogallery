@@ -43,7 +43,6 @@ export const ContainerLeft = styled(Container)({
   borderRightWidth: "2px",
   borderRightColor: "#212121",
   borderRightStyle: "solid",
-  background: "#fff",
   overflow: "hidden",
   "@media (max-width: 899px)": {
     //fix the 900 mid screen bug
@@ -60,9 +59,8 @@ export const BoxNoPageElements = styled(Box)({
   position: "fixed",
   top: 0,
   height: "100%",
-  background: "white",
   minWidth: "18rem",
-  borderRight: "thin solid black",
+  borderRight: "thin solid",
   zIndex: "100",
   paddingTop: "2rem",
 });
@@ -95,6 +93,9 @@ export const CustomBottomNavigationAction = styled(BottomNavigationAction)({
   alignItems: "center",
   "& .MuiBottomNavigationAction-label": {
     fontSize: "0.85rem",
+  },
+  "&.Mui-selected .MuiSvgIcon-root": {
+    fill: "#7ED957",
   },
   color: "#242424",
   padding: "0",

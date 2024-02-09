@@ -10,7 +10,7 @@ export const AppContextProvider = ({ children }: any) => {
         main: "#7ED957",
       },
       text: {
-        primary: "#fff",
+        primary: "#000",
       },
     },
     typography: {
@@ -34,11 +34,30 @@ export const AppContextProvider = ({ children }: any) => {
     },
   });
 
-  const lightTheme = createTheme({ ...createdTheme });
+  const lightTheme = createTheme({
+    ...createdTheme,
+  });
   const darkTheme = createTheme({
     ...createdTheme,
     palette: {
       mode: "dark",
+      primary: {
+        main: "#7ED957",
+      },
+    },
+    components: {
+      MuiSvgIcon: {
+        styleOverrides: {
+          root: {
+            fill: "#cdcdcd",
+          },
+        },
+      },
+      MuiBottomNavigationAction: {
+        styleOverrides: {
+          label: { color: "#C0C0C0" },
+        },
+      },
     },
   });
 
