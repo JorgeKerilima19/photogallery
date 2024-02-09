@@ -1,49 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider, createTheme, CssBaseline } from "@mui/material";
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import { MainContainer } from "./styles/styles.ts";
+import { AppContextProvider } from "./context/AppContentProvider.tsx";
+import AppContext from "./context/AppContext.tsx";
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: "#7ED957",
-    },
-    text: {
-      primary: "#fff",
-    },
-  },
-  typography: {
-    fontFamily: "Lato, sans-seriff",
-  },
-  components: {
-    MuiCssBaseline: {
-      styleOverrides: {
-        body: {
-          fontFamily: "Lato, sans-serif",
-        },
-      },
-    },
-    MuiAvatar: {
-      styleOverrides: {
-        root: {
-          position: "static",
-        },
-      },
-    },
-  },
-});
+//Create a component to use hooks
+
+const Root = () => {
+  const { darkMode, lightTheme, darkTheme } = useContext(AppContext);
+
+  return (
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <CssBaseline />
+      <MainContainer maxWidth="xl" disableGutters>
+        <App />
+      </MainContainer>
+    </ThemeProvider>
+  );
+};
 
 ReactDOM.createRoot(document.getElementById("#root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <MainContainer maxWidth="xl" disableGutters>
-          <App />
-        </MainContainer>
-      </ThemeProvider>
+      <AppContextProvider>
+        <Root />
+      </AppContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

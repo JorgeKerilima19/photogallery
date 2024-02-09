@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Logo from "./Logo";
 
@@ -15,6 +15,8 @@ import { CreateComponent, SearchComponent } from "./pages";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import AppContext from "../context/AppContext";
+import { Button } from "@mui/material";
 
 const iconList = [
   {
@@ -42,16 +44,15 @@ const iconList = [
 ];
 
 const Navbar = () => {
+  //theme switch
+
+  const { switchTheme } = useContext(AppContext);
+
+  //Navbar page control
   const [value, setValue] = useState(1);
   const [singleComponent, setSingleComponent] = useState<
     ReactElement | undefined
   >(undefined);
-
-  const [showLabel, setShowLabel] = useState(true);
-
-  const theme = useTheme();
-  const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
-  const logoControl = useMediaQuery(theme.breakpoints.down("md"));
 
   const handlePageChange = (event: any, newValue: number) => {
     setValue(newValue);
@@ -68,6 +69,14 @@ const Navbar = () => {
     }
     return setSingleComponent(component);
   };
+
+  //Lebels to show
+  const [showLabel, setShowLabel] = useState(true);
+
+  //Responsiveness Control
+  const theme = useTheme();
+  const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
+  const logoControl = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <>
@@ -140,7 +149,9 @@ const Navbar = () => {
             );
           })}
         </CustomBottomNavigation>
-        <Menu fontSize="large" sx={{ fill: "#242424" }} />
+        <Button onClick={switchTheme}>
+          <Menu fontSize="large" sx={{ fill: "#242424" }} />
+        </Button>
       </ContainerLeft>
 
       <>

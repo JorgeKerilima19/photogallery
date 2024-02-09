@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import { Button, Box, Modal } from "@mui/material";
 import OpenCamera from "../create/OpenCamera";
