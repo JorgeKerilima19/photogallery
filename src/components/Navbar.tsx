@@ -15,7 +15,7 @@ import { CreateComponent, SearchComponent } from "./pages";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
 
 //Context
 import AppContext from "../context/AppContext";
@@ -95,6 +95,8 @@ const Navbar = () => {
         sx={{
           width: `${showLabel && !isSmallDevice ? "11.4rem" : "5rem"}`,
           backgroundColor: theme.palette.background.default,
+          gap: { xs: "0.5rem", md: "2rem" },
+          padding: { xs: "1rem 0", sm: "1rem 0 1rem 0.8rem" },
         }}
       >
         <>
@@ -110,6 +112,7 @@ const Navbar = () => {
           sx={{
             width: `${showLabel || isSmallDevice ? "auto" : "5rem"}`,
             flexDirection: { xs: "row", md: "column" },
+            gap: { xs: "0.3rem", md: "1rem" },
           }}
         >
           {iconList.map((icon, index) => {
@@ -123,6 +126,7 @@ const Navbar = () => {
                   label={`${!isSmallDevice ? icon.name : ""}`}
                   showLabel={showLabel}
                   sx={{
+                    minWidth: "2rem",
                     "& .MuiBottomNavigationAction-label": {
                       display: `${showLabel ? "block" : "none"}`,
                     },
@@ -141,6 +145,7 @@ const Navbar = () => {
                 label={`${!isSmallDevice ? icon.name : ""}`}
                 showLabel={showLabel}
                 sx={{
+                  minWidth: "min-content",
                   "& .MuiBottomNavigationAction-label": {
                     display: `${showLabel ? "block" : "none"}`,
                   },
@@ -152,9 +157,13 @@ const Navbar = () => {
             );
           })}
         </CustomBottomNavigation>
-        <Button onClick={switchTheme}>
+        <IconButton
+          onClick={switchTheme}
+          disableRipple
+          sx={{ minWidthidth: "2rem", padding: 0 }}
+        >
           <Menu fontSize="large" />
-        </Button>
+        </IconButton>
       </ContainerLeft>
 
       <>

@@ -9,6 +9,7 @@ import {
   Avatar,
   IconButton,
   Typography,
+  Box,
 } from "@mui/material";
 
 import {
@@ -20,30 +21,24 @@ import {
 
 export const Post = () => {
   return (
-    <Card sx={{ color: "black", maxWidth: "max(80%,25rem)" }}>
+    <Card sx={{ maxWidth: "max(80%,25rem)", zIndex: "0" }}>
       {/* Header with user information */}
       <CardHeader
-        avatar={<Avatar src={user1} sx={{ position: "static" }} />}
-        title="Username"
-        subheader="Location"
+        avatar={<Avatar src={user1} />}
         action={
           <IconButton aria-label="settings">
             <MoreHoriz></MoreHoriz>
           </IconButton>
         }
+        title="Username"
+        titleTypographyProps={{ fontSize: "0.95rem" }}
       />
 
       {/* Image or video content */}
       <CardMedia component="img" height="500" image={photo1} alt="Post Image" />
 
       {/* Like, Comment, and Send buttons */}
-      <CardContent
-        sx={{
-          "& .css-78trlr-MuiButtonBase-root-MuiIconButton-root ": {
-            position: "unset",
-          },
-        }}
-      >
+      <CardContent sx={{ padding: "0.5rem 0 0 0.5rem" }}>
         <IconButton aria-label="like">
           <Favorite />
         </IconButton>
@@ -56,9 +51,13 @@ export const Post = () => {
       </CardContent>
 
       {/* Caption and comments */}
-      <CardContent>
+      <CardContent sx={{ padding: "0.9rem" }}>
+        <Box display="flex" alignItems="baseline" gap={0.5}>
+          <Typography>45</Typography>
+          <Typography>likes</Typography>
+        </Box>
         <Typography variant="body1">
-          <strong>Username:</strong> Lorem ipsum dolor, sit amet consectetur
+          <strong>Username</strong> Lorem ipsum dolor, sit amet consectetur
           adipisicing elit. #Instagram #Post
         </Typography>
       </CardContent>

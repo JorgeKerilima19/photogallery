@@ -30,10 +30,9 @@ export const CustomContainer = styled("div")({
 
 export const ContainerLeft = styled(Container)({
   display: "flex",
-  gap: "2rem",
+  zIndex: "999",
   flexDirection: "column",
   justifyContent: "space-between",
-  padding: "1rem 0 1rem 0.8rem",
   maxHeight: "95vh",
   position: "fixed",
   top: "0",
@@ -52,6 +51,8 @@ export const ContainerLeft = styled(Container)({
     maxHeight: "4rem",
     flexDirection: "row",
     width: "100%  ",
+    justifyContent: "center",
+    borderTop: "thin solid",
   },
 });
 
@@ -82,7 +83,6 @@ export const ContainerRight = styled(Container)({
 
 export const CustomBottomNavigation = styled(BottomNavigation)({
   display: "flex",
-  gap: "1rem",
   height: "auto",
   alignItems: "start",
 });
