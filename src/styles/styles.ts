@@ -18,6 +18,7 @@ export const MainContainer = styled(Container)({
   },
   "@media (max-width: 1200px)": {
     justifyContent: "center",
+    gap: "0",
   },
 });
 
@@ -74,6 +75,9 @@ export const ContainerCenter = styled(Container)({
   alignItems: "center",
   width: "max(60%,40rem)",
   margin: "auto 0",
+  "@media (max-width: 800px)": {
+    width: "100%",
+  },
 });
 
 export const ContainerRight = styled(Container)({

@@ -84,7 +84,9 @@ const Navbar = () => {
     <>
       <>
         {isSmallDevice && logoControl ? (
-          <Logo showlabel={showLabel && !isSmallDevice} />
+          <Link to="/">
+            <Logo showlabel={showLabel && !isSmallDevice} />
+          </Link>
         ) : (
           ""
         )}
@@ -101,7 +103,9 @@ const Navbar = () => {
       >
         <>
           {!isSmallDevice || !logoControl ? (
-            <Logo showlabel={showLabel && !isSmallDevice} />
+            <Link to="/">
+              <Logo showlabel={showLabel && !isSmallDevice} />
+            </Link>
           ) : (
             ""
           )}

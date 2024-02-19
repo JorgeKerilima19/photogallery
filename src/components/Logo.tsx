@@ -12,7 +12,7 @@ const Logo = ({ showlabel }: { showlabel: boolean }) => {
     position: "fixed" as const,
     top: "0.4rem",
     left: "0.2rem",
-    opacity:"0.5"
+    opacity: "0.5",
   };
 
   const generalStyles = {
@@ -28,7 +28,13 @@ const Logo = ({ showlabel }: { showlabel: boolean }) => {
       }}
     >
       <source srcSet={shortLogo} media="(max-width: 650px)" />
-      <img src={showlabel ? logoLight : shortLogo} alt="Logo" />
+      <img
+        src={showlabel ? logoLight : shortLogo}
+        alt="Logo"
+        style={{
+          maxHeight: `${isSmaallScreen && showlabel ? "4rem" : "2.5rem"}`,
+        }}
+      />
     </picture>
   );
 };

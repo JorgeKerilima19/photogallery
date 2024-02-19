@@ -96,7 +96,7 @@ export const ProfilePage = () => {
       </Grid>
       <Container disableGutters>
         <Box>{!isSmallDevice ? <></> : <>{about}</>}</Box>
-        <Box display="flex">
+        <Box display="flex" paddingTop="1rem">
           <StoryComponent />
           <StoryComponent />
           <StoryComponent />
