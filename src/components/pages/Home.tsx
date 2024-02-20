@@ -3,7 +3,7 @@ import { StoryComponent } from "../homepage/StoryComponent";
 import { ContainerCenter, ContainerRight } from "../../styles/styles";
 import { Post } from "../homepage/Post";
 import { Suggestion } from "../homepage/Suggestion";
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import AppContext from "../../context/AppContext";
 
 import {
@@ -14,6 +14,8 @@ import {
 export const HomePage = () => {
   const { users } = useContext(AppContext);
   const containerReft = useRef<HTMLDivElement>(null);
+  const [scrollStart, setScrollStart] = useState<boolean>(true);
+  const [scrollEnd, setScrollEnd] = useState<boolean>(false);
 
   //Stories
 
@@ -36,6 +38,24 @@ export const HomePage = () => {
       });
     }
   };
+
+  useEffect(() => {
+    const controlScroll = () => {
+      if (containerReft.current) {
+        setScrollStart(containerReft.current?.scrollLeft === 0);
+        setScrollEnd(
+          containerReft.current?.scrollLeft ===
+            containerReft.current?.scrollWidth -
+              containerReft.current?.offsetWidth
+        );
+      }
+    };
+    containerReft.current?.addEventListener("scroll", controlScroll);
+    return () => {
+      containerReft.current?.removeEventListener("scroll", controlScroll);
+    };
+  }, []);
+
   return (
     <>
       <ContainerCenter
@@ -54,9 +74,14 @@ export const HomePage = () => {
           <IconButton
             onClick={ScrollLeftButton}
             sx={{ position: "absolute", left: 0, padding: 0 }}
+            disabled={!scrollStart ? false : true}
           >
-            <ArrowCircleLeftRounded color="primary" fontSize="large" />
-          </IconButton>{" "}
+            <ArrowCircleLeftRounded
+              color={`${!scrollStart ? "primary" : "disabled"}`}
+              sx={{ fill: `${scrollStart ? "" : "#7ED957"}` }}
+              fontSize="large"
+            />
+          </IconButton>
           <Container
             disableGutters
             sx={{
@@ -81,8 +106,13 @@ export const HomePage = () => {
           <IconButton
             onClick={ScrollRightButton}
             sx={{ position: "absolute", right: 0, padding: 0 }}
+            disabled={!scrollEnd ? false : true}
           >
-            <ArrowCircleRightRounded color="primary" fontSize="large" />
+            <ArrowCircleRightRounded
+              color={`${!scrollEnd ? "primary" : "disabled"}`}
+              sx={{ fill: `${scrollEnd ? "" : "#7ED957"}` }}
+              fontSize="large"
+            />
           </IconButton>
         </Box>
         <Box

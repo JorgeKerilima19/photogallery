@@ -1,10 +1,17 @@
 import { Avatar, Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 
-import img from "/assets/photo1.jpg";
+import { photosCollection } from "../../data/photoCollection";
 
 const userDefault = { username: "user" };
 
 export const StoryComponent = ({ user = userDefault }: any) => {
+  const [userPhoto, setUserPhoto] = useState<string>();
+
+  useEffect(() => {
+    setUserPhoto(photosCollection[user.id - 1]);
+  }, []);
+
   return (
     <Box
       display="flex"
@@ -16,7 +23,7 @@ export const StoryComponent = ({ user = userDefault }: any) => {
       sx={{ cursor: "pointer" }}
     >
       <Avatar
-        src={img}
+        src={userPhoto}
         sx={{
           height: "3.5rem",
           width: "3.5rem",

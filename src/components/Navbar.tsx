@@ -2,7 +2,14 @@ import { ReactElement, useContext, useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import Logo from "./Logo";
 
-import { Home, Search, AddBox, AccountCircle, Menu } from "@mui/icons-material";
+import {
+  Home,
+  Search,
+  AddBox,
+  AccountCircle,
+  Nightlight,
+  WbSunny,
+} from "@mui/icons-material";
 
 import {
   CustomBottomNavigation,
@@ -48,7 +55,7 @@ const iconList = [
 const Navbar = () => {
   //theme switch
 
-  const { switchTheme } = useContext(AppContext);
+  const { switchTheme, darkMode } = useContext(AppContext);
 
   //Navbar page control
   const [value, setValue] = useState(1);
@@ -166,7 +173,13 @@ const Navbar = () => {
           disableRipple
           sx={{ minWidthidth: "2rem", padding: 0 }}
         >
-          <Menu fontSize="large" />
+          <>
+            {darkMode ? (
+              <WbSunny fontSize="large" />
+            ) : (
+              <Nightlight fontSize="large" />
+            )}
+          </>
         </IconButton>
       </ContainerLeft>
 
