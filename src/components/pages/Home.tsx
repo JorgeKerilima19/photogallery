@@ -147,9 +147,13 @@ export const HomePage = () => {
               See All
             </Typography>
           </Box>
-          <Suggestion></Suggestion>
-          <Suggestion></Suggestion>
-          <Suggestion></Suggestion>
+          <>
+            {users
+              .filter((user: any) => user.id < 4)
+              .map((user: any) => (
+                <Suggestion user={user} />
+              ))}
+          </>
         </ContainerRight>
       </Hidden>
     </>

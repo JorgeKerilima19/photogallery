@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import { photosCollection } from "../../data/photoCollection";
 
-const userDefault = { username: "user" };
+const userDefault = { id: 10, username: "user" };
 
 export const StoryComponent = ({ user = userDefault }: any) => {
   const [userPhoto, setUserPhoto] = useState<string>();

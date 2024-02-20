@@ -1,8 +1,22 @@
+import { useState, useEffect } from "react";
+
+import { photosCollection } from "../../data/photoCollection";
+
 import { Avatar, Typography, Box } from "@mui/material";
 
 import img1 from "/assets/user1.jpg";
 
-export const Suggestion = () => {
+const userDefault = {
+  id: 0,
+  name: "RandomUser",
+};
+
+export const Suggestion = ({ user = userDefault }) => {
+  const [userPhoto, setUserPhoto] = useState<string>(img1);
+
+  useEffect(() => {
+    setUserPhoto(photosCollection[Math.floor(Math.random() * 10)]);
+  }, []);
   return (
     <Box
       sx={{
@@ -15,12 +29,22 @@ export const Suggestion = () => {
       }}
     >
       <Avatar
-        src={img1}
+        src={userPhoto}
         sx={{ height: "2.75rem", width: "2.75rem" }}
         alt="Image"
       />
       <Box>
-        <Typography variant="body1">User1</Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+            maxWidth: "6rem",
+          }}
+        >
+          {user.name}
+        </Typography>
         <Typography variant="caption">Suggested for you</Typography>
       </Box>
       <Typography
