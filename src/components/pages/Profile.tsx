@@ -1,10 +1,14 @@
+import { useContext, useEffect, useState } from "react";
+import { useTheme, useMediaQuery } from "@mui/material";
+import { useParams } from "react-router-dom";
+
+import { StoryComponent } from "../homepage/StoryComponent";
 import { ProfileContainer } from "../../styles/styles";
 
-import profileImg from "/assets/photo5.jpg";
+import { photosCollection } from "../../data/photoCollection";
+
 import { posts } from "../../data/PostData";
-
 import { Card, CardMedia, Divider } from "@mui/material";
-
 import {
   Grid,
   Container,
@@ -13,22 +17,47 @@ import {
   Box,
   Button,
 } from "@mui/material";
+import AppContext from "../../context/AppContext";
 
-import useMediaQuery from "@mui/material/useMediaQuery";
-import { useTheme } from "@mui/material/styles";
-import { StoryComponent } from "../homepage/StoryComponent";
+const stories = [
+  { id: 1, username: "Life" },
+  { id: 2, username: "Adventures" },
+  { id: 3, username: "Camping" },
+];
+
+const userDefault = {
+  id: 10,
+  username: "RandomUser",
+  company: {
+    name: "Romaguera-Crona",
+    catchPhrase: "Multi-layered client-server neural-net",
+  },
+};
 
 export const ProfilePage = () => {
+  const [user, setUser] = useState<any>(userDefault);
+  const { userId } = useParams();
+  const [userPhoto, setUserPhoto] = useState<string>();
+
+  const { fetchUserData } = useContext(AppContext);
   const theme = useTheme();
   const isSmallDevice = useMediaQuery(theme.breakpoints.down("lg"));
 
+  useEffect(() => {
+    if (userId) {
+      const getUserData = async () => {
+        const data = await fetchUserData(userId);
+        setUser(data);
+      };
+      getUserData();
+    }
+    setUserPhoto(photosCollection[user.id - 1]);
+  }, []);
+
   const about = (
     <Box padding="1rem 0">
-      <Typography variant="subtitle1">Name</Typography>
-      <Typography variant="inherit">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum,
-        beatae?;
-      </Typography>
+      <Typography variant="subtitle1">{user.company.name}</Typography>
+      <Typography variant="inherit">{user.company.catchPhrase}</Typography>
     </Box>
   );
 
@@ -43,7 +72,7 @@ export const ProfilePage = () => {
           sx={{ display: "grid", placeItems: "center" }}
         >
           <Avatar
-            src={profileImg}
+            src={userPhoto}
             sx={{
               height: `${isSmallDevice ? "4rem" : "7.4rem"}`,
               width: `${isSmallDevice ? "4rem" : "7.4rem"}`,
@@ -60,7 +89,7 @@ export const ProfilePage = () => {
             }}
           >
             <Grid item xs={12} sm={6}>
-              <Typography variant="h6">UserName</Typography>
+              <Typography variant="h6">@{user.username}</Typography>
             </Grid>
             <Grid item display="flex" xs={12} sm={6} gap={1}>
               <Button variant="contained" size="small">
@@ -75,15 +104,15 @@ export const ProfilePage = () => {
             {!isSmallDevice ? (
               <Box display="flex" gap={4} paddingTop={2}>
                 <Box display="flex" alignItems="center" gap={0.5}>
-                  <Typography variant="subtitle1">3</Typography>
+                  <Typography variant="subtitle1">6</Typography>
                   <Typography variant="inherit">Post</Typography>
                 </Box>
                 <Box display="flex" alignItems="center" gap={0.5}>
-                  <Typography variant="subtitle1">8</Typography>
+                  <Typography variant="subtitle1">10</Typography>
                   <Typography variant="inherit">Followers</Typography>
                 </Box>
                 <Box display="flex" alignItems="center" gap={0.5}>
-                  <Typography variant="subtitle1">14</Typography>
+                  <Typography variant="subtitle1">10</Typography>
                   <Typography variant="inherit">Following</Typography>
                 </Box>
               </Box>
@@ -96,11 +125,10 @@ export const ProfilePage = () => {
       </Grid>
       <Container disableGutters>
         <Box>{!isSmallDevice ? <></> : <>{about}</>}</Box>
-        <Box display="flex" paddingTop="1rem">
-          <StoryComponent />
-          <StoryComponent />
-          <StoryComponent />
-          <StoryComponent />
+        <Box display="flex" paddingTop="1rem" gap={1}>
+          {stories.map((story) => (
+            <StoryComponent key={story.id} user={story} />
+          ))}
         </Box>
       </Container>
       <Divider variant="fullWidth" sx={{ marginTop: 2, marginBottom: 2 }} />

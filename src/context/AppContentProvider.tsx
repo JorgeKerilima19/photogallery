@@ -84,6 +84,17 @@ export const AppContextProvider = ({ children }: any) => {
     fetchData();
   }, []);
 
+  //fetch single user
+
+  const fetchUserData = async (userId: string | number) => {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    const data = await res.json();
+
+    return data;
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -94,6 +105,7 @@ export const AppContextProvider = ({ children }: any) => {
         darkMode,
         switchTheme,
         users,
+        fetchUserData,
       }}
     >
       {children}

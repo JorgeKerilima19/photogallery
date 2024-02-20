@@ -151,7 +151,7 @@ export const HomePage = () => {
             {users
               .filter((user: any) => user.id < 4)
               .map((user: any) => (
-                <Suggestion user={user} />
+                <Suggestion key={user.id} user={user} />
               ))}
           </>
         </ContainerRight>

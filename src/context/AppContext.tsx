@@ -12,6 +12,7 @@ interface AppContextType {
 
   //users
   users: any;
+  fetchUserData: (userId: string | number) => void;
 }
 
 const AppContext = createContext<AppContextType>({} as AppContextType);
