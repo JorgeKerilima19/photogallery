@@ -22,7 +22,7 @@ import { CreateComponent, SearchComponent } from "./pages";
 
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
-import { IconButton } from "@mui/material";
+import { BottomNavigationAction, IconButton } from "@mui/material";
 
 //Context
 import AppContext from "../context/AppContext";
@@ -63,7 +63,7 @@ const Navbar = () => {
     ReactElement | undefined
   >(undefined);
 
-  const handlePageChange = (event: any, newValue: number) => {
+  const handlePageChange = (_: any, newValue: number) => {
     setValue(newValue);
   };
 
@@ -129,18 +129,28 @@ const Navbar = () => {
           {iconList.map((icon, index) => {
             if (icon.path) {
               return (
-                <CustomBottomNavigationAction
+                <BottomNavigationAction
                   key={index}
                   icon={icon.icon}
                   component={Link}
-                  to={`${icon.path}`}
+                  to={icon.path}
                   label={`${!isSmallDevice ? icon.name : ""}`}
                   showLabel={showLabel}
                   sx={{
                     minWidth: "2rem",
                     "& .MuiBottomNavigationAction-label": {
                       display: `${showLabel ? "block" : "none"}`,
+                      fontSize: "0.85rem",
                     },
+                    flexDirection: "row",
+                    gap: "0.5rem",
+                    alignItems: "center",
+                    "&.Mui-selected .MuiSvgIcon-root": {
+                      fill: "#7ED957",
+                    },
+                    color: "#242424",
+                    padding: "0",
+                    justifyContent: "space-between",
                   }}
                   onClick={() => {
                     setShowLabel(true);

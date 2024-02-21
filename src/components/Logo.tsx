@@ -1,4 +1,4 @@
-import { logoLight, shortLogo, logoDark } from "../data/LogoData";
+import { logoLight, shortLogo } from "../data/LogoData";
 
 import { useTheme, useMediaQuery } from "@mui/material";
 

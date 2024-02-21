@@ -38,4 +38,10 @@ export const photoData: Photo[] = [
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ipsam!",
     image: photo4,
   },
+  {
+    header: "",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ipsam!",
+    image: photo5,
+  },
 ];
