@@ -31,7 +31,7 @@ const iconList = [
   {
     icon: <Home fontSize="large" />,
     name: "Home",
-    path: "/",
+    path: "/photogallery/",
   },
   {
     icon: <Search fontSize="large" />,
@@ -48,7 +48,7 @@ const iconList = [
   {
     icon: <AccountCircle fontSize="large" />,
     name: "Account",
-    path: "/profile",
+    path: "/photogallery/profile",
   },
 ];
 
@@ -91,7 +91,7 @@ const Navbar = () => {
     <>
       <>
         {isSmallDevice && logoControl ? (
-          <Link to="/">
+          <Link to="/photogallery/">
             <Logo showlabel={showLabel && !isSmallDevice} />
           </Link>
         ) : (
@@ -110,7 +110,7 @@ const Navbar = () => {
       >
         <>
           {!isSmallDevice || !logoControl ? (
-            <Link to="/">
+            <Link to="/photogallery/">
               <Logo showlabel={showLabel && !isSmallDevice} />
             </Link>
           ) : (
